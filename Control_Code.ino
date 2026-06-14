@@ -81,6 +81,9 @@ if (isnan(TC) || isnan(TP) || isnan(TPL))
     delay(1000);
     return;
 }
+else{
+  PWM = RES_PWM;
+}
   
   //Battery terminal voltage divider
   float adc = analogRead(VB);
@@ -127,11 +130,13 @@ if (isnan(TC) || isnan(TP) || isnan(TPL))
     digitalWrite(FAN_MOSFET_GATE, HIGH); 
   }
 
-  else if (TC<37 && TP<37 && TPL<37)
+/*
+  else if (TC<34 && TP<34 && TPL<34)
   {
   digitalWrite(FAN_MOSFET_GATE, LOW); 
   }
-  
+*/
+
   //PWM input to MOSFETs
   analogWrite(MOSFET_GATE, PWM);
 
