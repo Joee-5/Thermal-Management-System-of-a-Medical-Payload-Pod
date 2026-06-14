@@ -130,12 +130,10 @@ else{
     digitalWrite(FAN_MOSFET_GATE, HIGH); 
   }
 
-/*
-  else if (TC<34 && TP<34 && TPL<34)
+  else if (TC<32 && TP<32 && TPL<32)
   {
   digitalWrite(FAN_MOSFET_GATE, LOW); 
   }
-*/
 
   //PWM input to MOSFETs
   analogWrite(MOSFET_GATE, PWM);
