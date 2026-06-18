@@ -26,8 +26,8 @@
 
 //Defining DHT11 sensors pins, accuracy = +- 2 deg celcius
 #include <DHT.h>
-#define DHT_CONTROL_PIN 5
-#define DHT_POWER_PIN   6
+#define DHT_CONTROL_PIN 6
+#define DHT_POWER_PIN   8
 #define DHT_PLANT_PIN   7
 
 #define DHTTYPE DHT11
@@ -72,7 +72,7 @@ float TP  = dhtPower.readTemperature();
 float TPL = dhtPlant.readTemperature();
 
   //Checking if one of the sensors misses readings
-if (isnan(TC) || isnan(TP) || isnan(TPL))
+if (isnan(TP) || isnan(TC) || isnan(TPL))
 {
     PWM = 0;
     digitalWrite(LED,LOW);
@@ -125,7 +125,7 @@ else{
   }
   
   //fan starts running at high temperature 
-  if (TC >= 40 || TP >= 40 || TPL >= 40)
+  if (TC >= 38 || TP >= 38 || TPL >= 38)
   {
     digitalWrite(FAN_MOSFET_GATE, HIGH); 
   }
